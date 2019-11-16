@@ -7,7 +7,7 @@ export class User {
   @ApiModelProperty({ readOnly: true })
   id: number;
 
-  @Column({ length: 255 })
+  @Column({ length: 256 })
   @ApiModelProperty()
   name: string;
 }
