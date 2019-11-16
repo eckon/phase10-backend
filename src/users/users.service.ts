@@ -1,6 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, BadRequestException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, InsertResult } from 'typeorm';
+import { Repository } from 'typeorm';
 import { User } from './user.entity';
 
 @Injectable()
@@ -18,16 +18,17 @@ export class UsersService {
     return (await this.userRepository.find({ id }))[0];
   }
 
-  async insert(user: User): Promise<InsertResult> {
+  async insert(user: User): Promise<User> {
     delete user.id;
-    return await this.userRepository.insert(user);
+    const result = await this.userRepository.insert(user);
+    return this.findById(result.identifiers[0].id);
   }
 
   async deleteById(id: number): Promise<User> {
     const user = await this.findById(id);
 
     if (user === undefined) {
-      return new User();
+      throw new BadRequestException(`UserId ${id} could not be found.`);
     }
 
     return await this.userRepository.remove(user);

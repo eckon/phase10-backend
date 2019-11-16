@@ -1,4 +1,4 @@
-import { Get, Controller, Param, Post, Body, Delete } from '@nestjs/common';
+import { Get, Controller, Param, Post, Body, Delete, NotFoundException } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { User } from './user.entity';
 import { ApiResponse } from '@nestjs/swagger';
@@ -21,10 +21,9 @@ export class UsersController {
     }
 
     @Post()
-    @ApiResponse({ status: 201, type: Number, description: 'ID of the created User' })
-    async insertUser(@Body() user: User): Promise<number> {
-      const result = await this.usersService.insert(user);
-      return result.identifiers[0].id;
+    @ApiResponse({ status: 201, type: User })
+    async insertUser(@Body() user: User): Promise<User> {
+      return await this.usersService.insert(user);
     }
 
     @Delete(':id')
@@ -32,7 +31,6 @@ export class UsersController {
     async deleteUserById(@Param() params: any): Promise<User> {
       const id = Number(params.id);
       const result = await this.usersService.deleteById(id);
-      // TODO: Exception when result is empty -> no user was found
 
       return result;
     }
