@@ -1,4 +1,4 @@
-import { Get, Controller, Param, Post, Body, Delete } from '@nestjs/common';
+import { Get, Controller, Param, Post, Body, Delete, BadRequestException } from '@nestjs/common';
 import { GamesService } from './games.service';
 import { Game } from './game.entity';
 import { ApiResponse } from '@nestjs/swagger';
@@ -44,4 +44,11 @@ export class GamesController {
       return await this.gamesService.insert(game);
     }
 
+    @Delete(':id')
+    @ApiResponse({ status: 200, type: Game })
+    @ApiResponse({ status: 400, description: 'Did not find the Game.' })
+    async deleteGame(@Param() params: any) {
+      const id = Number(params.id);
+      return await this.gamesService.delete(id);
+    }
 }
