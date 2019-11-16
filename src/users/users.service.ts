@@ -28,7 +28,7 @@ export class UsersService {
     const user = await this.findById(id);
 
     if (user === undefined) {
-      throw new BadRequestException(`UserId ${id} could not be found.`);
+      throw new BadRequestException(`User ID ${id} could not be found.`);
     }
 
     return await this.userRepository.remove(user);

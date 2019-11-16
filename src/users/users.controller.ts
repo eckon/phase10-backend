@@ -30,8 +30,6 @@ export class UsersController {
     @ApiResponse({ status: 200, type: User })
     async deleteUserById(@Param() params: any): Promise<User> {
       const id = Number(params.id);
-      const result = await this.usersService.deleteById(id);
-
-      return result;
+      return await this.usersService.deleteById(id);
     }
 }
