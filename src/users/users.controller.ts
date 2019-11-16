@@ -28,6 +28,7 @@ export class UsersController {
 
     @Delete(':id')
     @ApiResponse({ status: 200, type: User })
+    @ApiResponse({ status: 400, description: 'Did not find the User.' })
     async deleteUserById(@Param() params: any): Promise<User> {
       const id = Number(params.id);
       return await this.usersService.deleteById(id);
