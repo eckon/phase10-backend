@@ -15,10 +15,10 @@ export class GamesService {
   }
 
   async findById(id: number): Promise<Game> {
-    return (await this.gamesRepository.find({
+    return await this.gamesRepository.findOne({
       where: [ { id } ],
       relations: ['users'],
-    }))[0];
+    });
   }
 
   async insert(game: Game): Promise<Game> {
