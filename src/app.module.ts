@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import { GamesModule } from './games/games.module';
+import { RoundsModule } from './rounds/rounds.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { GamesModule } from './games/games.module';
       entities: ['dist/**/*.entity{.ts,.js}'],
     }),
     GamesModule,
+    RoundsModule,
     UsersModule,
   ],
 })
