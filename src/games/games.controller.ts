@@ -42,10 +42,7 @@ export class GamesController {
       // initialize all the users
       const userSnapshots = [];
       for (const user of data.users) {
-        const userSnapshot = new UserSnapshot();
-        userSnapshot.user = user;
-        userSnapshot.phase = 1;
-        userSnapshot.points = 0;
+        const userSnapshot = new UserSnapshot(user);
         userSnapshots.push(userSnapshot);
       }
 
