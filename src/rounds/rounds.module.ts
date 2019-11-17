@@ -5,12 +5,14 @@ import { RoundsService } from './rounds.service';
 import { RoundsController } from './rounds.controller';
 import { GamesModule } from '../games/games.module';
 import { UsersModule } from '../users/users.module';
+import { RoundInformationsModule } from '../round-informations/roundInformations.module';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([Round]),
     GamesModule,
     UsersModule,
+    RoundInformationsModule,
   ],
   providers: [RoundsService],
   controllers: [RoundsController],

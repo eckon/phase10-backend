@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import { GamesModule } from './games/games.module';
 import { RoundsModule } from './rounds/rounds.module';
+import { RoundInformationsModule } from './round-informations/roundInformations.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { RoundsModule } from './rounds/rounds.module';
     }),
     GamesModule,
     RoundsModule,
+    RoundInformationsModule,
     UsersModule,
   ],
 })
