@@ -1,4 +1,5 @@
 import { ApiModelProperty } from '@nestjs/swagger';
+import { PostUserData } from './PostUserData';
 
 export class PostRound {
   @ApiModelProperty()
@@ -9,4 +10,7 @@ export class PostRound {
 
   @ApiModelProperty({ required: false })
   doubled: boolean;
+
+  @ApiModelProperty()
+  users: PostUserData[];
 }
