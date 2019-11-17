@@ -21,6 +21,19 @@ export class GamesService {
     });
   }
 
+  async findDetailedById(id: number): Promise<Game> {
+    return await this.gamesRepository.findOne({
+      where: [ { id } ],
+      relations: [
+        'users',
+        'rounds',
+        'rounds.winner',
+        'rounds.roundInformations',
+        'rounds.roundInformations.user',
+      ],
+    });
+  }
+
   async insert(game: Game): Promise<Game> {
     return await this.gamesRepository.save(game);
   }
