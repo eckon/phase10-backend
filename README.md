@@ -1,3 +1,15 @@
+# Documentation
+
+The Swagger API is under [/swagger](http://localhost:3000/swagger).
+
+
+# TODO
+
+A list of [TODOs](TODO.md)
+
+
+# Nest
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
 </p>
