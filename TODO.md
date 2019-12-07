@@ -7,3 +7,5 @@
     * Add Routes for all games, all finished games, and all not finished games
 
 * Stop at Phase 10
+
+* Update packages ncu
