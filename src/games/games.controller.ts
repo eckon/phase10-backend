@@ -4,8 +4,8 @@ import { Game } from './game.entity';
 import { ApiResponse } from '@nestjs/swagger';
 import { PostGame } from '../modules/PostGame';
 import { UsersService } from '../users/users.service';
-import { GameSnapshot } from 'src/modules/GameSnapshot';
-import { UserSnapshot } from 'src/modules/UserSnapshot';
+import { GameSnapshot } from '../modules/GameSnapshot';
+import { UserSnapshot } from '../modules/UserSnapshot';
 
 @Controller('games')
 export class GamesController {
@@ -18,6 +18,12 @@ export class GamesController {
     @ApiResponse({ status: 200, type: Game, isArray: true })
     async get(): Promise<Game[]> {
       return await this.gamesService.findAll();
+    }
+
+    @Get('running')
+    @ApiResponse({ status: 200, type: Game, isArray: true })
+    async getRunning(): Promise<Game[]> {
+      return await this.gamesService.findRunning();
     }
 
     @Get(':id')

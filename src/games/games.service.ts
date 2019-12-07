@@ -14,6 +14,40 @@ export class GamesService {
     return await this.gamesRepository.find({ relations: ['users'] });
   }
 
+  async findRunning(): Promise<Game[]> {
+    const allGames = await this.gamesRepository.find({
+      relations: [
+        'users',
+        'rounds',
+        'rounds.roundInformations',
+        'rounds.roundInformations.user',
+      ],
+    });
+
+    const runningGames = allGames.filter(ele => {
+      let userPhase = [];
+      for (const round of ele.rounds) {
+        for (const info of round.roundInformations) {
+          if (!info.completedPhase) {
+            continue;
+          }
+
+          if (userPhase[info.user.id] === undefined) {
+            userPhase[info.user.id] = 1;
+          }
+          userPhase[info.user.id]++;
+
+          if (userPhase[info.user.id] > 10) {
+            return false;
+          }
+        }
+      }
+      return true;
+    });
+
+    return runningGames;
+  }
+
   async findById(id: number): Promise<Game> {
     return await this.gamesRepository.findOne({
       where: [ { id } ],
