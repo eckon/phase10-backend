@@ -17,11 +17,11 @@ export class RoundInformation {
   @ApiModelProperty()
   user: User;
 
-  @Column()
+  @Column({ default: false })
   @ApiModelProperty()
   completedPhase: boolean;
 
-  @Column()
+  @Column({ default: 0 })
   @ApiModelProperty()
   points: number;
 }
