@@ -5,18 +5,20 @@ import { ApiResponse } from '@nestjs/swagger';
 
 @Controller('roundinformations')
 export class RoundInformationsController {
-    constructor(private readonly roundInformationsService: RoundInformationsService) {}
+  constructor(
+    private readonly roundInformationsService: RoundInformationsService,
+  ) {}
 
-    @Get()
-    @ApiResponse({ status: 200, type: RoundInformation, isArray: true })
-    async get(): Promise<RoundInformation[]> {
-      return await this.roundInformationsService.findAll();
-    }
+  @Get()
+  @ApiResponse({ status: 200, type: RoundInformation, isArray: true })
+  async get(): Promise<RoundInformation[]> {
+    return await this.roundInformationsService.findAll();
+  }
 
-    @Get(':id')
-    @ApiResponse({ status: 200, type: RoundInformation })
-    async getById(@Param() params: any): Promise<RoundInformation> {
-      const id = Number(params.id);
-      return await this.roundInformationsService.findById(id);
-    }
+  @Get(':id')
+  @ApiResponse({ status: 200, type: RoundInformation })
+  async getById(@Param() params: any): Promise<RoundInformation> {
+    const id = Number(params.id);
+    return await this.roundInformationsService.findById(id);
+  }
 }

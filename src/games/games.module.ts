@@ -6,10 +6,7 @@ import { Game } from './game.entity';
 import { UsersModule } from '../users/users.module';
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([Game]),
-    UsersModule,
-  ],
+  imports: [TypeOrmModule.forFeature([Game]), UsersModule],
   providers: [GamesService],
   controllers: [GamesController],
   exports: [GamesService],

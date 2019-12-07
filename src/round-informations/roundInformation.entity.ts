@@ -9,11 +9,17 @@ export class RoundInformation {
   @ApiModelProperty({ readOnly: true })
   id: number;
 
-  @ManyToOne(type => Round, round => round.id)
+  @ManyToOne(
+    type => Round,
+    round => round.id,
+  )
   @ApiModelProperty()
   round: Round;
 
-  @ManyToOne(type => User, user => user.id)
+  @ManyToOne(
+    type => User,
+    user => user.id,
+  )
   @ApiModelProperty()
   user: User;
 

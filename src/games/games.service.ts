@@ -53,14 +53,14 @@ export class GamesService {
 
   async findById(id: number): Promise<Game> {
     return await this.gamesRepository.findOne({
-      where: [ { id } ],
+      where: [{ id }],
       relations: ['users'],
     });
   }
 
   async findDetailedById(id: number): Promise<Game> {
     return await this.gamesRepository.findOne({
-      where: [ { id } ],
+      where: [{ id }],
       relations: [
         'users',
         'rounds',

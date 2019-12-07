@@ -25,7 +25,13 @@ export class RoundsService {
 
   async findById(id: number): Promise<Round> {
     return await this.roundsRepository.findOne({
-      relations: ['game', 'game.users', 'winner', 'roundInformations', 'roundInformations.user'],
+      relations: [
+        'game',
+        'game.users',
+        'winner',
+        'roundInformations',
+        'roundInformations.user',
+      ],
       where: [{ id }],
     });
   }
@@ -44,11 +50,15 @@ export class RoundsService {
       const game = await this.gamesService.findById(post.gameId);
 
       if (winner === undefined) {
-        throw new BadRequestException(`Winner with ID ${post.winnerId} was not found.`);
+        throw new BadRequestException(
+          `Winner with ID ${post.winnerId} was not found.`,
+        );
       }
 
       if (game === undefined) {
-        throw new BadRequestException(`Game with ID ${post.gameId} was not found.`);
+        throw new BadRequestException(
+          `Game with ID ${post.gameId} was not found.`,
+        );
       }
 
       const newRound = new Round();
@@ -69,7 +79,9 @@ export class RoundsService {
 
         // only users that are in the game can be in a round
         if (!gameUserIds.includes(user.id)) {
-          throw new BadRequestException(`User ${user.name} (${user.id}) is not participating in the Game ${game.id}.`);
+          throw new BadRequestException(
+            `User ${user.name} (${user.id}) is not participating in the Game ${game.id}.`,
+          );
         }
 
         const info = new RoundInformation();
@@ -83,7 +95,7 @@ export class RoundsService {
         information.push(infoResult);
       }
 
-      const result = new PostRoundResult()
+      const result = new PostRoundResult();
       result.round = round;
       result.information = information;
 

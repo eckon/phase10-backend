@@ -1,4 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable, OneToMany } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToMany,
+  JoinTable,
+  OneToMany,
+} from 'typeorm';
 import { ApiModelProperty } from '@nestjs/swagger';
 import { User } from '../users/user.entity';
 import { Round } from '../rounds/round.entity';
@@ -18,7 +25,10 @@ export class Game {
   @ApiModelProperty()
   users: User[];
 
-  @OneToMany(type => Round, round => round.game)
+  @OneToMany(
+    type => Round,
+    round => round.game,
+  )
   @ApiModelProperty()
   rounds: Round[];
 }
