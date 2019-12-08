@@ -1,3 +1,5 @@
+* Use Github issues as todo and delete todo.md afterwards
+
 * Games
     * Delete Games
         * Return Status message when trying to delete game with rounds (currently cant delete them because of the foreignkey)
@@ -8,4 +10,4 @@
 
 * Stop at Phase 10
 
-* Update packages ncu
+* Update packages swagger
