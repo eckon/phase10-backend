@@ -16,6 +16,12 @@ $ npm run start:prod
 # development + watch mode
 $ npm run start:dev
 
+# update letsencrypt cert
+# kill process on port 80 for validation
+$ sudo kill $(sudo lsof -t -i:80)
+# update certificates
+$ sudo certbot certonly --standalone -d eckon.me
+
 ```
 
 # TODO
