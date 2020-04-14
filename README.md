@@ -1,5 +1,7 @@
 # Documentation
 
+Deployed and automatically updated by Herkou (master branch).
+
 The Swagger API is under [/swagger](http://localhost:3000/swagger).
 
 
