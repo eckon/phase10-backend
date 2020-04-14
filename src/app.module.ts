@@ -8,10 +8,12 @@ import { RoundInformationsModule } from './round-informations/roundInformations.
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'sqlite',
-      database: 'sqlite3.db',
+      type: 'postgres',
+      url: process.env.DATABASE_URL,
       synchronize: true,
-      logging: true,
+      ssl: {
+        rejectUnauthorized: false,
+      },
       entities: ['dist/**/*.entity{.ts,.js}'],
     }),
     GamesModule,
