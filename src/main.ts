@@ -26,13 +26,13 @@ async function bootstrap() {
     .setTitle('phase10-backend')
     .setDescription('API Description for phase10')
     .setVersion('1.0.0')
-    .setHost('localhost:3000')
+    .setHost('localhost:' + (process.env.PORT || 3000))
     .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('swagger', app, document);
 
-  await app.listen(3000);
+  await app.listen(process.env.PORT || 3000);
 }
 bootstrap();
