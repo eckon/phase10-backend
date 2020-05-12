@@ -1,12 +1,13 @@
 import { Get, Controller, Param, Post, Body, Delete } from '@nestjs/common';
 import { GamesService } from './games.service';
 import { Game } from './game.entity';
-import { ApiResponse } from '@nestjs/swagger';
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { PostGame } from '../modules/PostGame';
 import { UsersService } from '../users/users.service';
 import { GameSnapshot } from '../modules/GameSnapshot';
 import { UserSnapshot } from '../modules/UserSnapshot';
 
+@ApiTags('games')
 @Controller('games')
 export class GamesController {
   constructor(

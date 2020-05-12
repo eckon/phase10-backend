@@ -1,10 +1,11 @@
 import { Get, Controller, Param, Post, Body } from '@nestjs/common';
-import { ApiResponse } from '@nestjs/swagger';
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Round } from './round.entity';
 import { RoundsService } from './rounds.service';
 import { PostRound } from '../modules/PostRound';
 import { PostRoundResult } from '../modules/PostRoundResult';
 
+@ApiTags('rounds')
 @Controller('rounds')
 export class RoundsController {
   constructor(private readonly roundsService: RoundsService) {}

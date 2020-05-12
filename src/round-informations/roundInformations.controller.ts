@@ -1,8 +1,9 @@
 import { Get, Controller, Param } from '@nestjs/common';
 import { RoundInformationsService } from './roundInformations.service';
 import { RoundInformation } from './roundInformation.entity';
-import { ApiResponse } from '@nestjs/swagger';
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('roundinformations')
 @Controller('roundinformations')
 export class RoundInformationsController {
   constructor(
