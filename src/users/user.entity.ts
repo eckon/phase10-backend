@@ -1,13 +1,13 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
-import { ApiModelProperty } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 
 @Entity('user')
 export class User {
   @PrimaryGeneratedColumn()
-  @ApiModelProperty({ readOnly: true })
+  @ApiProperty({ readOnly: true })
   id: number;
 
   @Column({ length: 256 })
-  @ApiModelProperty()
+  @ApiProperty()
   name: string;
 }

@@ -1,11 +1,11 @@
-import { ApiModelProperty } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 import { Round } from '../rounds/round.entity';
 import { RoundInformation } from '../round-informations/roundInformation.entity';
 
 export class PostRoundResult {
-  @ApiModelProperty()
+  @ApiProperty({ type: () => Round })
   round: Round;
 
-  @ApiModelProperty()
+  @ApiProperty()
   information: RoundInformation[];
 }

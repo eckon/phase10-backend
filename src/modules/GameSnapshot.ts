@@ -1,11 +1,11 @@
-import { ApiModelProperty } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 import { Game } from '../games/game.entity';
 import { UserSnapshot } from './UserSnapshot';
 
 export class GameSnapshot {
-  @ApiModelProperty()
+  @ApiProperty({ type: () => Game })
   game: Game;
 
-  @ApiModelProperty()
+  @ApiProperty()
   userSnapshots: UserSnapshot[];
 }

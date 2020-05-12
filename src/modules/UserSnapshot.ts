@@ -1,4 +1,4 @@
-import { ApiModelProperty } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 import { User } from '../users/user.entity';
 
 export class UserSnapshot {
@@ -8,12 +8,12 @@ export class UserSnapshot {
     this.points = 0;
   }
 
-  @ApiModelProperty()
+  @ApiProperty()
   phase: number;
 
-  @ApiModelProperty()
+  @ApiProperty()
   points: number;
 
-  @ApiModelProperty()
+  @ApiProperty()
   user: User;
 }

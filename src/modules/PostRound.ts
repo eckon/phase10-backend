@@ -1,16 +1,16 @@
-import { ApiModelProperty } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 import { PostUserData } from './PostUserData';
 
 export class PostRound {
-  @ApiModelProperty()
+  @ApiProperty()
   gameId: number;
 
-  @ApiModelProperty()
+  @ApiProperty()
   winnerId: number;
 
-  @ApiModelProperty({ required: false })
+  @ApiProperty({ required: false })
   doubled: boolean;
 
-  @ApiModelProperty()
+  @ApiProperty()
   users: PostUserData[];
 }

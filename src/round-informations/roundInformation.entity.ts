@@ -1,33 +1,33 @@
 import { Column, Entity, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
-import { ApiModelProperty } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 import { Round } from '../rounds/round.entity';
 import { User } from '../users/user.entity';
 
 @Entity('roundinformation')
 export class RoundInformation {
   @PrimaryGeneratedColumn()
-  @ApiModelProperty({ readOnly: true })
+  @ApiProperty({ readOnly: true })
   id: number;
 
   @ManyToOne(
     type => Round,
     round => round.id,
   )
-  @ApiModelProperty()
+  @ApiProperty({ type: () => Round })
   round: Round;
 
   @ManyToOne(
     type => User,
     user => user.id,
   )
-  @ApiModelProperty()
+  @ApiProperty()
   user: User;
 
   @Column({ default: false })
-  @ApiModelProperty()
+  @ApiProperty()
   completedPhase: boolean;
 
   @Column({ default: 0 })
-  @ApiModelProperty()
+  @ApiProperty()
   points: number;
 }

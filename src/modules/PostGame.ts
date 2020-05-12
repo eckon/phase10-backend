@@ -1,9 +1,9 @@
-import { ApiModelProperty } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 
 export class PostGame {
-  @ApiModelProperty()
+  @ApiProperty()
   title: string;
 
-  @ApiModelProperty()
+  @ApiProperty()
   userIds: number[];
 }

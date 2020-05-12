@@ -6,29 +6,29 @@ import {
   JoinTable,
   OneToMany,
 } from 'typeorm';
-import { ApiModelProperty } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 import { User } from '../users/user.entity';
 import { Round } from '../rounds/round.entity';
 
 @Entity('game')
 export class Game {
   @PrimaryGeneratedColumn()
-  @ApiModelProperty({ readOnly: true })
+  @ApiProperty({ readOnly: true })
   id: number;
 
   @Column({ length: 512 })
-  @ApiModelProperty()
+  @ApiProperty()
   title: string;
 
   @ManyToMany(type => User)
   @JoinTable()
-  @ApiModelProperty()
+  @ApiProperty()
   users: User[];
 
   @OneToMany(
     type => Round,
     round => round.game,
   )
-  @ApiModelProperty()
+  @ApiProperty()
   rounds: Round[];
 }

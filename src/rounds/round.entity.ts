@@ -5,7 +5,7 @@ import {
   ManyToOne,
   OneToMany,
 } from 'typeorm';
-import { ApiModelProperty } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 import { Game } from '../games/game.entity';
 import { User } from '../users/user.entity';
 import { RoundInformation } from '../round-informations/roundInformation.entity';
@@ -13,31 +13,31 @@ import { RoundInformation } from '../round-informations/roundInformation.entity'
 @Entity('round')
 export class Round {
   @PrimaryGeneratedColumn()
-  @ApiModelProperty({ readOnly: true })
+  @ApiProperty({ readOnly: true })
   id: number;
 
   @ManyToOne(
     type => Game,
     game => game.id,
   )
-  @ApiModelProperty()
+  @ApiProperty({ type: () => Game })
   game: Game;
 
   @ManyToOne(
     type => User,
     user => user.id,
   )
-  @ApiModelProperty()
+  @ApiProperty()
   winner: User;
 
   @OneToMany(
     type => RoundInformation,
     info => info.round,
   )
-  @ApiModelProperty()
+  @ApiProperty()
   roundInformations: RoundInformation[];
 
   @Column({ default: false })
-  @ApiModelProperty()
+  @ApiProperty()
   doubled: boolean;
 }
