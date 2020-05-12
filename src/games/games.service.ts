@@ -25,7 +25,7 @@ export class GamesService {
     });
 
     const runningGames = allGames.filter(ele => {
-      let userPhase = [];
+      const userPhase = [];
       if (ele.rounds === undefined || ele.rounds.length === 0) {
         return true;
       }

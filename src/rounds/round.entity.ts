@@ -17,6 +17,7 @@ export class Round {
   id: number;
 
   @ManyToOne(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     type => Game,
     game => game.id,
   )
@@ -24,6 +25,7 @@ export class Round {
   game: Game;
 
   @ManyToOne(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     type => User,
     user => user.id,
   )
@@ -31,6 +33,7 @@ export class Round {
   winner: User;
 
   @OneToMany(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     type => RoundInformation,
     info => info.round,
   )

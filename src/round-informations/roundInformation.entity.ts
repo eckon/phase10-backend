@@ -10,6 +10,7 @@ export class RoundInformation {
   id: number;
 
   @ManyToOne(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     type => Round,
     round => round.id,
   )
@@ -17,6 +18,7 @@ export class RoundInformation {
   round: Round;
 
   @ManyToOne(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     type => User,
     user => user.id,
   )

@@ -20,12 +20,14 @@ export class Game {
   @ApiProperty()
   title: string;
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   @ManyToMany(type => User)
   @JoinTable()
   @ApiProperty()
   users: User[];
 
   @OneToMany(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     type => Round,
     round => round.game,
   )
