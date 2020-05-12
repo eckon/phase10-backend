@@ -3,7 +3,7 @@ import { RoundInformationsService } from './roundInformations.service';
 import { RoundInformation } from './roundInformation.entity';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 
-@ApiTags('roundinformations')
+@ApiTags('rounds')
 @Controller('roundinformations')
 export class RoundInformationsController {
   constructor(

@@ -11,6 +11,10 @@ async function bootstrap() {
     .setDescription('API Description for phase10')
     .setVersion('1.0.0')
     .addBearerAuth()
+    .addTag('authentication')
+    .addTag('games')
+    .addTag('rounds')
+    .addTag('users')
     .build();
 
   const document = SwaggerModule.createDocument(app, options);
