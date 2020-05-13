@@ -2,10 +2,10 @@ import { Get, Controller, Param, Post, Body, Delete } from '@nestjs/common';
 import { GamesService } from './games.service';
 import { Game } from './game.entity';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
-import { PostGame } from '../modules/PostGame';
-import { UsersService } from '../users/users.service';
-import { GameSnapshot } from '../modules/GameSnapshot';
-import { UserSnapshot } from '../modules/UserSnapshot';
+import { PostGame } from 'src/modules/PostGame';
+import { UsersService } from 'src/users/users.service';
+import { GameSnapshot } from 'src/modules/GameSnapshot';
+import { UserSnapshot } from 'src/modules/UserSnapshot';
 
 @ApiTags('games')
 @Controller('games')

@@ -3,9 +3,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Round } from './round.entity';
 import { RoundsService } from './rounds.service';
 import { RoundsController } from './rounds.controller';
-import { GamesModule } from '../games/games.module';
-import { UsersModule } from '../users/users.module';
-import { RoundInformationsModule } from '../round-informations/roundInformations.module';
+import { GamesModule } from 'src/games/games.module';
+import { UsersModule } from 'src/users/users.module';
+import { RoundInformationsModule } from 'src/round-informations/roundInformations.module';
 
 @Module({
   imports: [

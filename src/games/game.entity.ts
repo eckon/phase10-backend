@@ -7,8 +7,8 @@ import {
   OneToMany,
 } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
-import { User } from '../users/user.entity';
-import { Round } from '../rounds/round.entity';
+import { User } from 'src/users/user.entity';
+import { Round } from 'src/rounds/round.entity';
 
 @Entity('game')
 export class Game {

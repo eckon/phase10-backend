@@ -2,8 +2,8 @@ import { Get, Controller, Param, Post, Body } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Round } from './round.entity';
 import { RoundsService } from './rounds.service';
-import { PostRound } from '../modules/PostRound';
-import { PostRoundResult } from '../modules/PostRoundResult';
+import { PostRound } from 'src/modules/PostRound';
+import { PostRoundResult } from 'src/modules/PostRoundResult';
 
 @ApiTags('rounds')
 @Controller('rounds')

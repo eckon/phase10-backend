@@ -5,9 +5,9 @@ import { Round } from './round.entity';
 import { PostRoundResult } from '../modules/PostRoundResult';
 import { PostRound } from '../modules/PostRound';
 import { RoundInformationsService } from '../round-informations/roundInformations.service';
-import { GamesService } from '../games/games.service';
-import { UsersService } from '../users/users.service';
-import { RoundInformation } from '../round-informations/roundInformation.entity';
+import { GamesService } from 'src/games/games.service';
+import { UsersService } from 'src/users/users.service';
+import { RoundInformation } from 'src/round-informations/roundInformation.entity';
 
 @Injectable()
 export class RoundsService {

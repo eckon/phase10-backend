@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
-import { Round } from '../rounds/round.entity';
-import { User } from '../users/user.entity';
+import { Round } from 'src/rounds/round.entity';
+import { User } from 'src/users/user.entity';
 
 @Entity('roundinformation')
 export class RoundInformation {
