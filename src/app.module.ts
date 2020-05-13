@@ -5,8 +5,7 @@ import { GamesModule } from './games/games.module';
 import { RoundsModule } from './rounds/rounds.module';
 import { RoundInformationsModule } from './round-informations/roundInformations.module';
 import { AccountsModule } from './accounts/accounts.module';
-import { AuthenticationService } from './authentication/authentication.service';
-import { AuthenticationModule } from './authentication/authentication.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -24,8 +23,7 @@ import { AuthenticationModule } from './authentication/authentication.module';
     RoundInformationsModule,
     UsersModule,
     AccountsModule,
-    AuthenticationModule,
+    AuthModule,
   ],
-  providers: [AuthenticationService],
 })
 export class AppModule {}

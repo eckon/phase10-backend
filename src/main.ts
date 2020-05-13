@@ -11,7 +11,7 @@ async function bootstrap() {
     .setDescription('API Description for phase10')
     .setVersion('1.0.0')
     .addBearerAuth()
-    .addTag('authentication')
+    .addTag('auth')
     .addTag('games')
     .addTag('rounds')
     .addTag('users')
